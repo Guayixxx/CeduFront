@@ -1,0 +1,64 @@
+<body>
+    <section class="user">
+        <div class="user_options-container">
+            <div class="user_options-text">
+                <div class="user_options-unregistered">
+                    <h2 class="user_unregistered-title">¿No tienes una cuenta todavía?</h2>
+                    <p class="user_unregistered-text">¿Qué esperas para registrarte? Da click en el siguiente botón para registarte!</p>
+                    <button class="user_unregistered-signup" id="signup-button" (click)="onSignUp()">Registrarse</button>
+                </div>
+
+                <div class="user_options-registered">
+                    <h2 class="user_registered-title">¿Tienes una cuenta?</h2>
+                    <p class="user_registered-text">¿Qué esperas para entrar? Da click en el siguiente botón para entrar!</p>
+                    <button class="user_registered-login" id="login-button" (click)="onLogin()">Entrar</button>
+                </div>
+            </div>
+
+            <div class="user_options-forms" id="user_options-forms">
+                <div class="user_forms-login">
+                    <h2 class="forms_title">Login</h2>
+                    <form  class="forms_form" [formGroup]="loginForm" (ngSubmit)="onAuth()">
+                        <fieldset class="forms_fieldset">
+                            <div class="forms_field">
+                                <input formControlName="email" placeholder="Correo" class="forms_field-input" required autofocus formControlName="email"/>
+                            </div>
+                            <div class="forms_field">
+                                <input formControlName="password" type="password" placeholder="Contraseña" class="forms_field-input" required formControlName="password"/>
+                            </div>
+                        </fieldset>
+                        <div class="forms_buttons">
+                            <button type="button" class="forms_buttons-forgot">Olvidaste la constraseña?</button>
+                            <input type="submit" value="Entrar" class="forms_buttons-action">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- FOMRMULARIO PARA REGISTRO -->
+
+                <div class="user_forms-signup">
+                    <h2 class="forms_title">Sign Up</h2>
+                    <form class="forms_form" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                        <fieldset class="forms_fieldset">
+                            <div class="forms_field">
+                                <input type="text" placeholder="Nombre" class="forms_field-input" required formControlName="firstname"/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="text" placeholder="Apellidos" class="forms_field-input" required formControlName="lastname"/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="email" placeholder="Correo eléctronico" class="forms_field-input" required formControlName="email"/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="password" placeholder="Contraseña" class="forms_field-input" required formControlName="password"/>
+                            </div>
+                        </fieldset>
+                        <div class="forms_buttons">
+                            <input type="submit" value="Registrarse" class="forms_buttons-action">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
